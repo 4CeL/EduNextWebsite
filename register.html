@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - EduNext</title>
+    <link rel="stylesheet" href="register.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&family=Lalezar&family=Notable&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="headerbar">
+        <img src="img/header/Group 17.png" class="headerlogo">
+        <div class="headerbarmiddle">
+            <a href="./home.php">Home</a>
+            <a href="./aboutus.php">About Us</a>
+            <a href="./forum.html">Forum</a>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <a href="login.html"><button class="loginbutton">LOGIN.</button></a>
+    </header>
+
+        <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="./home.php">Home</a>
+        <a href="./aboutus.php">About Us</a>
+        <a href="./forum.html">Forum</a>
+        <a href="./login.html">Login</a>
+    </div>
+
+    <div class="register-container">
+        
+        <div class="bg-text-top">REGISTER</div>
+        <div class="bg-text-bottom">REGISTER</div>
+
+        <div class="yellow-rect"></div>
+
+        <div class="form-card">
+            <form action="register_process.php" method="POST">
+                
+                <div class="row-input">
+                    <div class="input-group">
+                        <label>First Name</label>
+                        <input type="text" name="first_name" placeholder="Masukkan nama" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Last Name</label>
+                        <input type="text" name="last_name" placeholder="Masukkan nama" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" name="email" placeholder="Masukkan Email" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" name="password" placeholder="Masukkan Password" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Phone Number</label>
+                    <input type="text" name="phone_number" placeholder="Masukkan nomor telepon" required>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">I agree to the <b>Terms and Service</b></label>
+                </div>
+
+                <button type="submit" class="btn-register">Register</button>
+
+            </form>
+        </div>
+    </div>
+    <script src="hamburger.js"></script>
+</body>
+</html>

@@ -1,0 +1,673 @@
+/* GLOBAL RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    background-color: #EDEDED;
+    font-family: "Kumbh Sans", sans-serif;
+}
+
+.headerbar {
+    background-color: #f5f5f5;
+    padding: 5px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.headerlogo {
+    height: 70px;
+    width: auto;
+    margin-top: 20px;
+}
+
+.headerbarmiddle {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    font-family: "Kumbh Sans", sans-serif;
+}
+
+.headerbarmiddle a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    font-size: 20px;
+}
+
+.headerbarmiddle a:hover {
+    color: #ffc107;
+}
+
+/* --- TOMBOL LOGIN (Tambahkan ini di bagian Header) --- */
+.loginbutton {
+    background-color: #ECB602;
+    color: #ffffff;
+    padding: 5px 30px;
+    border-radius: 15px;
+    border: none;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Lalezar', sans-serif;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    font-size: 25px;
+    display: inline-block;
+}
+
+.loginbutton:hover {
+    background-color: #ffb300;
+}
+
+/* --- GANTI STYLE PROFILE ICON LAMA DENGAN INI --- */
+.profile-header {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid #290849; /* Border ungu agar rapi */
+    background-color: #d9d9d9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5rem;
+}
+
+.profile-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ===== HAMBURGER MENU ===== */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    margin-right: 20px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #1a0047;
+    border-radius: 2px;
+    transition: 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 10px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* ===== MOBILE MENU ===== */
+.mobile-menu {
+    display: none;
+    position: absolute;
+    top: 110px;
+    right: 0;
+    background-color: white;
+    width: 100%;
+    flex-direction: column;
+    padding: 20px;
+    gap: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    animation: slideDown 0.3s ease;
+    z-index: 999;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mobile-menu.active {
+    display: flex;
+}
+
+.mobile-menu a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 10px;
+    font-size: 16px;
+    font-family: "Kumbh Sans", sans-serif;
+}
+
+.mobile-menu a:hover {
+    color: #ffc107;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .headerbarmiddle {
+        display: none;
+    }
+
+    .headerbar {
+        padding: 5px 15px;
+    }
+
+    .headerlogo {
+        height: 60px;
+    }
+
+    .loginbutton {
+        padding: 5px 20px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hamburger {
+        display: flex;
+        margin-right: 10px;
+    }
+
+    .headerbarmiddle {
+        display: none;
+    }
+
+    .headerbar {
+        padding: 5px 10px;
+    }
+
+    .headerlogo {
+        height: 50px;
+        margin-top: 10px;
+    }
+
+    .loginbutton {
+        padding: 5px 15px;
+        font-size: 14px;
+    }
+
+    .mobile-menu {
+        top: 90px;
+    }
+
+    .mobile-menu a {
+        font-size: 14px;
+    }
+}
+
+/* === LAYOUT FORUM === */
+.forum-container {
+    display: flex;
+    min-height: 100vh;
+    margin-top: 20px;
+    max-width: 100%;
+}
+
+/* SIDEBAR KIRI */
+.sidebar {
+    width: 250px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sidebar-menu {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    color: #555;
+}
+
+.sidebar-menu.active {
+    background-color: #E0E0E0;
+    color: #000;
+}
+
+.sidebar-menu i { font-size: 1.5rem; }
+.sidebar-menu h3 { font-size: 1rem; font-weight: 700; margin-bottom: 2px; }
+.sidebar-menu p { font-size: 0.8rem; color: #777; }
+
+/* Vertical Text Background (Ungu di kiri) */
+.vertical-text-container {
+    background-color: #290849;
+    margin-top: 20px;
+    border-radius: 15px;
+    height: 600px; /* Tinggi area ungu */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    font-family: "Notable", sans-serif;
+    font-size: 6rem;
+    color: white;
+    white-space: nowrap;
+}
+
+/* MAIN FEED (KANAN) */
+.main-feed {
+    flex: 1;
+    padding: 20px 40px;
+    max-width: 100%;
+}
+
+/* Create Post Box */
+.create-post-card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.user-avatar-small {
+    width: 50px; height: 50px;
+    border-radius: 50%; object-fit: cover;
+    border: 2px solid #290849;
+}
+
+.post-form {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #E0E0E0;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.post-form input[type="text"] {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 10px;
+    font-size: 1rem;
+    outline: none;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+.icon-btn { cursor: pointer; color: #555; font-size: 1.2rem; padding: 0 10px; }
+
+.btn-create {
+    background-color: #290849;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-family: 'Kumbh Sans', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Date Header */
+.date-header {
+    text-align: right;
+    margin-bottom: 20px;
+    color: #290849;
+}
+.date-text { font-family: 'Notable', sans-serif; font-size: 2rem; line-height: 1; }
+.date-text span { font-family: 'Notable', sans-serif; color: #290849; font-size: 2.5rem; }
+
+/* Thread Card */
+.thread-card {
+    background: white;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    padding: 20px;
+}
+
+.thread-body {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.thread-image img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.thread-content { flex: 1; }
+.thread-title { font-size: 1.2rem; color: #333; margin-bottom: 15px; font-weight: 700; }
+
+.user-info { display: flex; align-items: center; gap: 10px; }
+.user-avatar-xs { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; background: #ddd; }
+.user-name { font-size: 0.9rem; color: #333; font-weight: 600; }
+.post-time { font-size: 0.8rem; color: #888; }
+
+.thread-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.stats-right { display: flex; gap: 15px; align-items: center; }
+.action-icon { font-size: 1.2rem; cursor: pointer; transition: 0.2s; }
+.action-icon:hover { color: #290849; }
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    font-family: 'Kumbh Sans', sans-serif;
+    color: #666;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+.pagination a {
+    text-decoration: none;
+    color: #666;
+    padding: 5px 10px;
+    transition: color 0.3s;
+}
+.pagination a.active, 
+.pagination a:hover {
+    color: #000;       /* Jadi hitam tebal */
+    font-weight: 900;
+    background-color: transparent; /* Hapus background kotak lama */
+    border: none;      /* Hapus border lama */
+    box-shadow: none;  /* Hapus bayangan lama */
+}
+.pagination span, .pagination b { margin: 0 5px; }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .forum-container { flex-direction: column; }
+    .sidebar { width: 100%; flex-direction: row; overflow-x: auto; padding: 10px; }
+    .vertical-text-container { display: none; } /* Hide Forum text on mobile */
+    .main-feed { padding: 20px; }
+    .thread-body { flex-direction: column; text-align: center; }
+    .user-info { justify-content: center; }
+    .thread-footer { flex-direction: column; gap: 10px; text-align: center; }
+    .stats-right { justify-content: center; }
+    
+    /* Header Mobile Logic */
+    .headerbarmiddle, .loginbutton, .profile-header { display: none; }
+    .hamburger { display: flex; }
+}
+
+/* ... (CSS sebelumnya tetap sama) ... */
+
+/* === TAMBAHAN STYLE UNTUK LIKE & COMMENT === */
+
+/* Warna Hati saat di-Like (Merah) */
+.liked {
+    color: #e0245e;
+    animation: pop 0.3s ease;
+}
+
+/* Link pembungkus icon agar tidak ada garis bawah */
+.action-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+@keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* Comment Section */
+.comments-section {
+    background-color: #f9f9f9;
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    border-top: 1px solid #eee;
+}
+
+.comments-list {
+    margin-bottom: 10px;
+    max-height: 150px; /* Batasi tinggi jika komen banyak */
+    overflow-y: auto; /* Scroll jika kepanjangan */
+}
+
+.comment-item {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.comment-item strong {
+    color: #290849;
+    margin-right: 5px;
+}
+
+/* Form Komentar Kecil */
+.comment-form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.comment-form input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    outline: none;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+.comment-form button {
+    background: none;
+    border: none;
+    color: #290849;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.comment-form button:hover {
+    color: #ECB602;
+}
+
+/* --- GAYA TATA LETAK HEADER FEED (BARU) --- */
+.feed-header {
+    display: flex;             /* Wajib Flexbox */
+    justify-content: space-between; /* Jarak maksimal antara kiri & kanan */
+    align-items: center;       /* Rata tengah secara vertikal */
+    gap: 20px;                 /* Jarak antar elemen */
+    margin-bottom: 30px;
+    width: 100%;
+    flex-wrap: nowrap;
+}
+
+.post-box-wrapper {
+    flex: 1; /* Mengambil sisa ruang yang ada */
+    max-width: 70%;
+}
+
+.create-post-card {
+    margin-bottom: 0; /* Margin dihandle oleh feed-header */
+    /* Style lama tetap: background white, padding, dll */
+}
+
+/* --- GAYA TANGGAL BESAR --- */
+.date-display {
+    text-align: right;
+    color: #290849;
+    min-width: 200px; /* Lebar minimum agar tidak gepeng */
+    padding-top: 10px;
+}
+
+.date-display h2 {
+    font-family: "Notable", sans-serif;
+    font-size: 1.5rem;
+    line-height: 1;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.date-display h1 {
+    font-family: "Notable", sans-serif;
+    font-size: 2.5rem;
+    line-height: 0.8;
+    letter-spacing: 2px;
+    color: #290849;
+    text-transform: uppercase;
+}
+
+/* RESPONSIVE UPDATE: Agar tanggal turun ke bawah di HP */
+@media (max-width: 900px) {
+    .feed-header {
+        flex-direction: column-reverse; /* Tanggal di atas, Input di bawah (atau column biasa) */
+        gap: 20px;
+    }
+    
+    .date-display {
+        width: 100%;
+        text-align: center; /* Rata tengah di HP */
+    }
+    
+    .post-box-wrapper {
+        width: 100%;
+    }
+
+    /* Di layar HP kecil, padding dikurangi biar muat */
+    .create-post-card {
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .user-avatar-small {
+        width: 40px;
+        height: 40px;
+    }
+
+    .post-form {
+        height: 4550x; /* Sedikit lebih kecil di HP */
+    }
+
+    .post-form input[type="text"] {
+        font-size: 0.9rem;
+        padding-left: 15px;
+    }
+
+    .btn-create {
+        padding: 0 15px; /* Kurangi padding tombol */
+        font-size: 0.8rem;
+    }
+    
+    .icon-btn {
+        padding: 0 10px;
+    }
+}
+
+/* ... (kode css sebelumnya) ... */
+
+/* === PAGINATION STYLE === */
+.pagination {
+    display: flex;
+    justify-content: center; /* Posisi di tengah */
+    align-items: center;
+    gap: 10px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+.page-btn, .page-number {
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    background-color: white;
+    color: #290849;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: 0.3s;
+    border: 1px solid #ddd;
+}
+
+.page-btn:hover, .page-number:hover {
+    background-color: #ECB602; /* Kuning saat hover */
+    color: white;
+    border-color: #ECB602;
+}
+
+.page-number.active {
+    background-color: #290849; /* Ungu untuk halaman aktif */
+    color: white;
+    border-color: #290849;
+    cursor: default;
+}
+
+/* --- TAMBAHAN TOGGLE COMMENT --- */
+
+/* Bungkus teks comment & icon agar bisa diklik bersamaan */
+.comment-trigger {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: color 0.3s;
+    user-select: none; /* Biar teks gak ke-blok pas diklik */
+}
+
+.comment-trigger:hover {
+    color: #290849;
+}
+
+.comment-trigger:hover .action-icon {
+    color: #290849;
+}
+

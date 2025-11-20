@@ -1,0 +1,494 @@
+/* ================= GLOBAL RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #EDEDED;
+}
+
+/* ================= HEADER (SAMA DENGAN ABOUT US & HOME) ================= */
+.headerbar {
+    background-color: #f5f5f5;
+    padding: 5px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    min-height: 80px; /* Tinggi stabil */
+}
+
+.headerlogo {
+    height: 70px;
+    width: auto;
+    margin-top: 20px;
+}
+
+.headerbarmiddle {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    font-family: "Kumbh Sans", sans-serif;
+}
+
+.headerbarmiddle a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    font-size: 20px;
+}
+
+.headerbarmiddle a:hover {
+    color: #ffc107;
+}
+
+/* --- TOMBOL LOGIN (Disiapkan jika logout dan perlu login lagi) --- */
+.loginbutton {
+    background-color: #ECB602;
+    color: #ffffff;
+    padding: 5px 30px;
+    border-radius: 15px;
+    border: none;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Lalezar', sans-serif;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    font-size: 25px;
+    display: inline-block;
+}
+
+.loginbutton:hover {
+    background-color: #ffb300;
+}
+
+/* --- FOTO PROFIL BULAT --- */
+/* Class disamakan menjadi .profile-header */
+.profile-header {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid #290849;
+    background-color: #d9d9d9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5rem; /* Margin dihapus agar rapi */
+}
+
+.profile-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ================= HAMBURGER MENU ================= */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #1a0047;
+    border-radius: 2px;
+    transition: 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+}
+
+/* ================= MOBILE MENU ================= */
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 80px; /* Nempel di bawah header */
+    left: 0;
+    right: 0;
+    background-color: white;
+    width: 100%;
+    flex-direction: column;
+    padding: 20px;
+    gap: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    animation: slideDown 0.3s ease;
+    z-index: 999;
+    text-align: center;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.mobile-menu.active {
+    display: flex;
+}
+
+.mobile-menu a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 15px;
+    font-size: 18px;
+    font-family: "Kumbh Sans", sans-serif;
+    border-bottom: 1px solid #eee;
+}
+
+.mobile-menu a:hover {
+    color: #ffc107;
+}
+
+/* ================= MAIN LAYOUT (KONTEN AKUN) ================= */
+.main-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 3rem auto;
+    min-height: 70vh;
+    position: relative;
+    z-index: 1;
+}
+
+/* Kita set form sebagai flex container agar Left dan Right section bisa bersebelahan */
+.account-form {
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+}
+
+/* ================= BAGIAN KIRI (FORM INPUT) ================= */
+.left-section {
+    flex: 1.2; 
+    padding-right: 3rem;
+}
+
+.welcome-text {
+    font-family: 'Notable', sans-serif;
+    font-size: 3.5rem;
+    color: #290849;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+}
+
+/* Style Pesan Notifikasi */
+.message-box {
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #d1e7dd;
+    color: #0f5132;
+    border: 1px solid #badbcc;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: 600;
+}
+
+/* --- Layout Baris Nama (First & Last Name Sejajar) --- */
+.name-row {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+.name-col {
+    flex: 1; 
+}
+
+/* --- Style Input Abu-abu --- */
+.input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.input-wrapper input {
+    width: 100%;
+    background-color: #D9D9D9; 
+    border: 2px solid transparent;
+    padding: 15px 40px 15px 20px; 
+    border-radius: 10px;
+    font-size: 1rem;
+    color: #333;
+    font-family: 'Kumbh Sans', sans-serif;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input-wrapper input:focus {
+    border-color: #290849; 
+}
+
+.edit-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    color: #777;
+    pointer-events: none; 
+}
+
+/* --- Tombol & Link Bawah --- */
+.bottom-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* ================= LOGOUT BUTTON ================= */
+.links-group {
+    display: flex;
+    gap: 10px;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+.logout-link {
+    color: #d9534f; 
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: color 0.3s;
+    display: inline-block;
+}
+
+.logout-link:hover {
+    color: #c9302c; 
+    text-decoration: underline;
+}
+
+.premium-link {
+    color: #290849;
+    text-decoration: underline;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.btn-save {
+    background-color: #290849; 
+    color: #ECB602; 
+    font-family: 'Lalezar', sans-serif;
+    font-size: 1.8rem;
+    border: none;
+    padding: 5px 35px;
+    border-radius: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.2s;
+}
+
+.btn-save:hover {
+    transform: scale(1.05);
+}
+
+.btn-save .arrow {
+    font-size: 2rem;
+    line-height: 0;
+    margin-bottom: 5px;
+}
+
+/* ================= DIVIDER TENGAH ================= */
+.vertical-divider {
+    width: 2px;
+    background-color: #ECB602;
+    margin: 0 2rem;
+    align-self: stretch; 
+    min-height: 500px;
+}
+
+/* ================= BAGIAN KANAN (FOTO PROFIL) ================= */
+.right-section {
+    flex: 0.8;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 2rem;
+}
+
+.profile-card {
+    background: white;
+    padding: 10px;
+    width: 100%;
+    max-width: 350px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-radius: 2px;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    background-color: #eee;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.edit-photo-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+    background-color: #222;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bio-section textarea {
+    width: 100%;
+    border: none;
+    resize: none;
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 1rem;
+    color: #666;
+    outline: none;
+    min-height: 60px;
+    text-align: center;
+    background: transparent;
+}
+
+.premium-link{
+    color: black;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+/* ================= DEKORASI ================= */
+.yellow-box {
+    position: fixed;
+    bottom: 0;
+    right: 3rem;
+    width: 100px;
+    height: 150px;
+    background-color: #ECB602;
+    z-index: -1;
+}
+
+/* ================= RESPONSIVE ================= */
+/* Tablet & Mobile */
+@media (max-width: 900px) {
+    /* --- Header Mobile Logic --- */
+    .hamburger {
+        display: flex;
+    }
+
+    .headerbarmiddle {
+        display: none;
+    }
+
+    .headerbar {
+        padding: 5px 15px;
+    }
+    
+    /* Sembunyikan tombol login & foto profil di header (pindah ke menu) */
+    .loginbutton { display: none; }
+    .profile-header { display: none; }
+
+    /* --- Konten Akun Mobile Logic --- */
+    .main-container {
+        margin-top: 1rem;
+    }
+
+    .account-form {
+        flex-direction: column;
+    }
+
+    .vertical-divider {
+        display: none; 
+    }
+
+    .left-section {
+        padding-right: 0;
+        width: 100%;
+        margin-bottom: 3rem;
+    }
+
+    .welcome-text {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    .name-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .right-section {
+        width: 100%;
+        padding: 0;
+        justify-content: center;
+        order: -1; 
+        margin-bottom: 2rem;
+    }
+    
+    .profile-card {
+        max-width: 100%;
+    }
+
+    .yellow-box {
+        display: none; 
+    }
+
+    .bottom-actions {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .links-group {
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+}

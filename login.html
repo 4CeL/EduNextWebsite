@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Edunext</title>
+    <link rel="stylesheet" href="login.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&family=Lalezar&family=Notable&family=Josefin+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="headerbar">
+        <img src="img/header/Group 17.png" class="headerlogo">
+        <div class="headerbarmiddle">
+            <a href="./home.php">Home</a>
+            <a href="./aboutus.php">About Us</a>
+            <a href="./forum.html">Forum</a>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="./home.php">Home</a>
+        <a href="./aboutus.php">About Us</a>
+        <a href="./forum.html">Forum</a>
+    </div>
+
+    <div class="container">
+        <div class="left-panel">
+            <div class="form-wrapper">
+                <h1 class="login-title">Login</h1>
+                
+                <form action="login_process.php" method="POST">
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" placeholder="Masukkan email" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" placeholder="Masukkan password" required>
+                    </div>
+
+                    <div class="options">
+                        <label class="remember-me">
+                            <input type="checkbox"> Remember me
+                        </label>
+                        <a href="#" class="forgot-pass">Forgot Password</a>
+                    </div>
+
+                    <button type="submit" class="btn-signin">Sign in</button>
+                    <div class="divider">Or</div>
+                    <button type="button" class="btn-google">
+                        <img src="https://img.icons8.com/color/16/000000/google-logo.png" alt="G"> 
+                        Sign in with Google
+                    </button>
+
+                    <p class="signup-text">
+                        Don't have an account? <a href="register.html">Register here</a>.
+                    </p>
+                </form>
+            </div>
+        </div>
+        <div class="right-panel">
+            <img src="img/beasiswa 1.png" alt="Login Image">
+        </div>
+    </div>
+    <script src="hamburger.js"></script>
+</body>
+</html>

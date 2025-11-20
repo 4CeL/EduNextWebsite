@@ -1,0 +1,470 @@
+/* GLOBAL RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    background-color: #EDEDED;
+    padding-bottom: 50px;
+}
+
+.headerbar {
+    background-color: #f5f5f5;
+    padding: 5px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.headerlogo {
+    height: 70px;
+    width: auto;
+    margin-top: 20px;
+}
+
+.headerbarmiddle {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    font-family: "Kumbh Sans", sans-serif;
+}
+
+.headerbarmiddle a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    font-size: 20px;
+}
+
+.headerbarmiddle a:hover {
+    color: #ffc107;
+}
+
+/* --- TOMBOL LOGIN (Tambahkan ini di bagian Header) --- */
+.loginbutton {
+    background-color: #ECB602;
+    color: #ffffff;
+    padding: 5px 30px;
+    border-radius: 15px;
+    border: none;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Lalezar', sans-serif;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    font-size: 25px;
+    display: inline-block;
+}
+
+.loginbutton:hover {
+    background-color: #ffb300;
+}
+
+/* --- GANTI STYLE PROFILE ICON LAMA DENGAN INI --- */
+.profile-header {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid #290849; /* Border ungu agar rapi */
+    background-color: #d9d9d9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5rem;
+}
+
+.profile-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ===== HAMBURGER MENU ===== */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    margin-right: 20px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #1a0047;
+    border-radius: 2px;
+    transition: 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 10px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* ===== MOBILE MENU ===== */
+.mobile-menu {
+    display: none;
+    position: absolute;
+    top: 110px;
+    right: 0;
+    background-color: white;
+    width: 100%;
+    flex-direction: column;
+    padding: 20px;
+    gap: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    animation: slideDown 0.3s ease;
+    z-index: 999;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mobile-menu.active {
+    display: flex;
+}
+
+.mobile-menu a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 10px;
+    font-size: 16px;
+    font-family: "Kumbh Sans", sans-serif;
+}
+
+.mobile-menu a:hover {
+    color: #ffc107;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .headerbarmiddle {
+        display: none;
+    }
+
+    .headerbar {
+        padding: 5px 15px;
+    }
+
+    .headerlogo {
+        height: 60px;
+    }
+
+    .loginbutton {
+        padding: 5px 20px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hamburger {
+        display: flex;
+        margin-right: 10px;
+    }
+
+    .headerbarmiddle {
+        display: none;
+    }
+
+    .headerbar {
+        padding: 5px 10px;
+    }
+
+    .headerlogo {
+        height: 50px;
+        margin-top: 10px;
+    }
+
+    .loginbutton {
+        padding: 5px 15px;
+        font-size: 14px;
+    }
+
+    .mobile-menu {
+        top: 90px;
+    }
+
+    .mobile-menu a {
+        font-size: 14px;
+    }
+}
+
+/* --- HERO SECTION & BACKGROUND WAVE --- */
+.hero-section {
+    position: relative;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    z-index: 1;
+}
+
+.hero-section h1 {
+    font-family: "Notable", sans-serif;
+    font-size: 6rem;
+    color: #290849;
+    letter-spacing: 5px;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 20px;
+}
+
+/* Wave Background Ungu */
+.purple-wave {
+    position: absolute;
+    top: 250px;
+    left: 0;
+    width: 100%;
+    height: 600px;
+    background-color: #553C65; /* Warna ungu kusam sesuai gambar */
+    z-index: -1;
+    /* Membuat lengkungan atas */
+    clip-path: ellipse(130% 100% at 50% 100%);
+    border-top-left-radius: 50% 20%;
+    border-top-right-radius: 50% 20%;
+    transform: skewY(-2deg);
+}
+
+/* --- SEARCH BAR --- */
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.search-box {
+    background-color: #D9D9D9;
+    border-radius: 20px;
+    padding: 5px 20px;
+    display: flex;
+    align-items: center;
+    width: 400px;
+}
+
+.search-box input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 10px;
+    font-size: 1rem;
+    outline: none;
+    font-family: 'Kumbh Sans', sans-serif;
+    color: #555;
+}
+
+.search-box button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* --- SCHOLARSHIP GRID --- */
+.scholarship-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 Kolom */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+/* --- CARD STYLE --- */
+.scholarship-card {
+    background-color: white;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s;
+}
+
+.scholarship-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-header-logo {
+    text-align: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee; /* Garis tipis seperti di gambar */
+    padding-bottom: 15px;
+    position: relative;
+}
+
+/* Logo decoration lines (titik & garis merah) */
+.card-header-logo::before {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 2px;
+    background: #C53F3F; /* Garis merah */
+    margin: 0 auto 5px auto;
+}
+
+.uni-logo {
+    height: 50px;
+    object-fit: contain;
+}
+
+.card-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.card-title-row h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #333;
+    max-width: 65%;
+}
+
+.btn-details {
+    background-color: #4A4A4A;
+    color: white;
+    text-decoration: none;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.card-body {
+    flex: 1;
+    font-size: 0.9rem;
+    color: #444;
+}
+
+.info-group {
+    margin-bottom: 15px;
+}
+
+.info-group h4 {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    color: #000;
+}
+
+.info-group ul {
+    list-style: none;
+    padding-left: 5px;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.dots {
+    display: flex;
+    gap: 5px;
+}
+
+.dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+.dot.red { background-color: #A52A2A; }
+.dot.yellow { background-color: #D4AF37; }
+.dot.green { background-color: #2E8B57; }
+
+.bookmark-icon {
+    font-size: 1.2rem;
+    color: #444;
+    cursor: pointer;
+}
+
+/* --- PAGINATION --- */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    font-family: 'Kumbh Sans', sans-serif;
+    font-weight: bold;
+    color: #666;
+}
+
+.pagination a {
+    text-decoration: none;
+    color: #666;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.pagination a.active, .pagination a:hover {
+    color: #000;
+    font-weight: 900;
+}
+
+/* Footer Text */
+.footer-text {
+    text-align: center;
+    font-family: "Oooh Baby", cursive;
+    font-size: 2.5rem;
+    color: #666;
+    margin-top: 20px;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+    .scholarship-grid { grid-template-columns: repeat(2, 1fr); } /* Tablet 2 kolom */
+    .hero-section h1 { font-size: 4rem; }
+}
+
+@media (max-width: 768px) {
+    .headerbarmiddle, .loginbutton, .profile-header { display: none; }
+    .hamburger { display: flex; }
+    .headerbar { padding: 5px 15px; }
+
+    .hero-section h1 { font-size: 3rem; letter-spacing: 2px; }
+    .search-box { width: 90%; }
+    
+    .scholarship-grid { grid-template-columns: 1fr; } /* Mobile 1 kolom */
+    
+    .purple-wave { height: 400px; top: 100px; }
+}

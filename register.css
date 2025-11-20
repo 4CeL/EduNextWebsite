@@ -1,0 +1,359 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    background-color: #EDEDED;
+}
+
+.headerbar {
+    background-color: #f5f5f5;
+    padding: 5px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.headerlogo {
+    height: 70px;
+    width: auto;
+    margin-top: 20px;
+}
+
+.headerbarmiddle {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    font-family: "Kumbh Sans", sans-serif;
+}
+
+.headerbarmiddle a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    font-size: 20px;
+}
+
+.headerbarmiddle a:hover {
+    color: #ffc107;
+}
+
+/* --- TOMBOL LOGIN (Tambahkan ini di bagian Header) --- */
+.loginbutton {
+    background-color: #ECB602;
+    color: #ffffff;
+    padding: 5px 30px;
+    border-radius: 15px;
+    border: none;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Lalezar', sans-serif;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    font-size: 25px;
+    display: inline-block;
+}
+
+.loginbutton:hover {
+    background-color: #ffb300;
+}
+
+/* --- GANTI STYLE PROFILE ICON LAMA DENGAN INI --- */
+.profile-header {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid #290849; /* Border ungu agar rapi */
+    background-color: #d9d9d9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5rem;
+}
+
+.profile-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ===== HAMBURGER MENU ===== */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    margin-right: 20px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #1a0047;
+    border-radius: 2px;
+    transition: 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 10px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* ===== MOBILE MENU ===== */
+.mobile-menu {
+    display: none;
+    position: absolute;
+    top: 110px;
+    right: 0;
+    background-color: white;
+    width: 100%;
+    flex-direction: column;
+    padding: 20px;
+    gap: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    animation: slideDown 0.3s ease;
+    z-index: 999;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mobile-menu.active {
+    display: flex;
+}
+
+.mobile-menu a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 10px;
+    font-size: 16px;
+    font-family: "Kumbh Sans", sans-serif;
+}
+
+.mobile-menu a:hover {
+    color: #ffc107;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .headerbarmiddle {
+        display: none;
+    }
+
+    .headerbar {
+        padding: 5px 15px;
+    }
+
+    .headerbar a{
+        display: none;
+    }
+
+    .headerlogo {
+        height: 60px;
+    }
+
+    .loginbutton {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .hamburger {
+        display: flex;
+        margin-right: 10px;
+    }
+
+    .headerbarmiddle {
+        display: none;
+    }
+
+    .headerbar {
+        padding: 5px 10px;
+    }
+
+    .headerbar a{
+        display: none;
+    }
+
+    .headerlogo {
+        height: 50px;
+        margin-top: 10px;
+    }
+
+    .loginbutton {
+        display: none;
+    }
+
+    .mobile-menu {
+        top: 90px;
+    }
+
+    .mobile-menu a {
+        font-size: 14px;
+    }
+}
+
+/* ================= REGISTER CONTENT (BAGIAN INI TETAP) ================= */
+/* CONTAINER BACKGROUND UNGU */
+.register-container {
+    position: relative;
+    width: 100%;
+    min-height: 92vh;
+    background: linear-gradient(135deg, #4a2c68 0%, #290849 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* TEKS BACKGROUND BESAR (OUTLINE) */
+.bg-text-top, .bg-text-bottom {
+    position: absolute;
+    font-family: 'Notable', sans-serif;
+    font-size: 12rem;
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.3);
+    z-index: 0;
+    white-space: nowrap;
+    user-select: none;
+    pointer-events: none;
+}
+
+.bg-text-top { top: -50px; left: 50%; transform: translateX(-50%); }
+.bg-text-bottom { bottom: -50px; right: -10%; opacity: 0.3; }
+
+.yellow-rect {
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+    width: 80px;
+    height: 200px;
+    background-color: #ECB602;
+    z-index: 1;
+}
+
+/* FORM CARD */
+.form-card {
+    background-color: white;
+    width: 100%;
+    max-width: 550px;
+    padding: 3rem;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    z-index: 2;
+    position: relative;
+}
+
+.row-input {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 0.1rem;
+}
+
+.input-group {
+    width: 100%;
+    margin-bottom: 1.2rem;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    outline: none;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+.btn-register {
+    width: 100%;
+    background-color: #4a1b5e;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Kumbh Sans', sans-serif;
+    transition: background 0.3s;
+}
+
+.btn-register:hover { background-color: #6a2c85; }
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+    /* --- Logic Navbar Mobile (Disamakan dengan About Us) --- */
+
+
+    /* Sembunyikan tombol Login di Header saat mode HP */
+    .loginbutton {
+        display: none;
+    }
+
+    .profile-header{
+        display: none;
+    }
+
+    .mobile-menu {
+        top: 80px;
+    }
+
+    /* --- Logic Form Register Mobile --- */
+    .bg-text-top, .bg-text-bottom { font-size: 5rem; }
+    .form-card { width: 85%; padding: 2rem; margin-top: 3rem; margin-bottom: 3rem;}
+    .row-input { flex-direction: column; gap: 0; margin-bottom: 0; }
+}

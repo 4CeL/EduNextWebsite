@@ -1,0 +1,499 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    background-color: #EDEDED;
+}
+
+.headerbar {
+    background-color: #f5f5f5;
+    padding: 5px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.headerlogo {
+    height: 70px;
+    width: auto;
+    margin-top: 20px;
+}
+
+.headerbarmiddle {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    font-family: "Kumbh Sans", sans-serif;
+}
+
+.headerbarmiddle a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    font-size: 20px;
+}
+
+.headerbarmiddle a:hover {
+    color: #ffc107;
+}
+
+/* --- TOMBOL LOGIN (Tambahkan ini di bagian Header) --- */
+.loginbutton {
+    background-color: #ECB602;
+    color: #ffffff;
+    padding: 5px 30px;
+    border-radius: 15px;
+    border: none;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Lalezar', sans-serif;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    font-size: 25px;
+    display: inline-block;
+}
+
+.loginbutton:hover {
+    background-color: #ffb300;
+}
+
+/* --- GANTI STYLE PROFILE ICON LAMA DENGAN INI --- */
+.profile-header {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid #290849; /* Border ungu agar rapi */
+    background-color: #d9d9d9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5rem;
+}
+
+.profile-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ===== HAMBURGER MENU ===== */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    margin-right: 20px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #1a0047;
+    border-radius: 2px;
+    transition: 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 10px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* ===== MOBILE MENU ===== */
+.mobile-menu {
+    display: none;
+    position: absolute;
+    top: 110px;
+    right: 0;
+    background-color: white;
+    width: 100%;
+    flex-direction: column;
+    padding: 20px;
+    gap: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    animation: slideDown 0.3s ease;
+    z-index: 999;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mobile-menu.active {
+    display: flex;
+}
+
+.mobile-menu a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 10px;
+    font-size: 16px;
+    font-family: "Kumbh Sans", sans-serif;
+}
+
+.mobile-menu a:hover {
+    color: #ffc107;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .headerbarmiddle {
+        display: none;
+    }
+
+    .headerbar {
+        padding: 5px 15px;
+    }
+
+    .headerlogo {
+        height: 60px;
+    }
+
+    .loginbutton {
+        padding: 5px 20px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hamburger {
+        display: flex;
+        margin-right: 10px;
+    }
+
+    .headerbarmiddle {
+        display: none;
+    }
+
+    .headerbar {
+        padding: 5px 10px;
+    }
+
+    .headerlogo {
+        height: 50px;
+        margin-top: 10px;
+    }
+
+    .loginbutton {
+        padding: 5px 15px;
+        font-size: 14px;
+    }
+
+    .mobile-menu {
+        top: 90px;
+    }
+
+    .mobile-menu a {
+        font-size: 14px;
+    }
+}
+
+/* ------------------ Konten -----------------*/
+.bagianatas{
+    width: 100%;
+    height: 90vh;
+    /* background-color: red; */
+    text-align: center;
+    padding-top: 10rem;
+    color: #290849;
+    font-family: "Lalezar", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.8rem;
+}
+
+.bagianatas h1{
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 8rem;
+    line-height: 0.75;
+}
+
+.spaced{
+    margin-top: 6rem;
+}
+
+.bagianatas .lastline{
+    font-family: "Oooh Baby", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2.8rem;
+    color: #505050;
+}
+
+.bagianbawah{
+    width: 100%;
+    height: 95vh;
+    /* background-color: red; */
+    color: #290849;
+    font-family: "Kumbh Sans", sans-serif;
+    display: flex;
+}
+
+.bagianbawah .kiri{
+    width: 52%;
+    height: 100%;
+    /* background-color: yellow; */
+    border-radius: 1.5%;
+    background-image: url(./img/aboutimg/about.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    margin-top: 0.5rem;
+    z-index: -1;
+}
+
+.bagianbawah .kanan{
+    width: 48%;
+    height: 100%;
+    padding-left: 3rem;
+    /* background-color: yellow; */
+}
+
+.bagianbawah .kanan h2{
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 5rem;
+}
+
+.bagianbawah .kanan p{
+    font-size: 1.3rem;
+}
+
+
+/* ------------------ Footer -----------------*/
+footer{
+    width: 100%;
+    height: 70vh;
+    background-color: #3D3D3D;
+    color: #ffffff;
+    font-family: "Kumbh Sans", sans-serif;
+    display: flex;
+}
+
+.footerleft{
+    width: 70%;
+    height: 100%;
+    /* background-color: red; */
+    padding: 2rem;
+    padding-left: 4rem;
+}
+
+.footerlinks{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 30%;
+    font-size: 1.4rem;
+}
+
+.footergianttext{
+    font-family: "Notable", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3.3rem;
+    color:#ffffff; 
+    margin-top: 2rem;
+    flex: 1;
+    overflow: visible;
+    /* background-color: yellow; */
+}
+
+.footergianttext h1 {
+    white-space: nowrap;
+}
+
+.footerleftsmalltext{
+    margin-top: 2rem;
+}
+
+.footerright{
+    padding: 2rem;
+    width: 30%;
+    height: 100%;
+    /* background-color: yellow; */
+}
+
+.footerright img{
+    width: 90%;
+    height: auto;
+}
+
+/* ================================================================= */
+/* TAMBAHKAN CODE INI DI BAGIAN PALING BAWAH FILE ABOUTUSSTYLE.CSS   */
+/* ================================================================= */
+
+@media screen and (max-width: 1024px) {
+    /* --- Penyesuaian untuk Tablet/Laptop Kecil --- */
+    
+    /* Mengecilkan font judul agar tidak terlalu besar */
+    .bagianatas h1 {
+        font-size: 6rem;
+    }
+
+    .bagianbawah .kanan h2 {
+        font-size: 4rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+
+    /* 2. BAGIAN ATAS (HERO SECTION) */
+    .bagianatas {
+        height: auto; /* Jangan dipaksa 90vh */
+        min-height: 60vh;
+        padding-top: 6rem; /* Kurangi padding atas */
+        padding-bottom: 3rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .loginbutton {
+        display: none;
+    }
+
+    .profile-header{
+        display: none;
+    }
+
+    .bagianatas h1 {
+        font-size: 3.5rem; /* Font judul lebih kecil */
+        line-height: 1;
+        margin: 1rem 0;
+    }
+
+    .bagianatas p {
+        font-size: 1rem;
+    }
+
+    .spaced {
+        margin-top: 3rem; /* Kurangi jarak */
+    }
+
+    .bagianatas .lastline {
+        font-size: 2rem;
+    }
+
+    /* 3. BAGIAN BAWAH (CONTENT SPLIT) */
+    .bagianbawah {
+        flex-direction: column; /* Gambar di bawah, Teks di atas (atau sebaliknya sesuai selera) */
+        /* Saya sarankan column-reverse agar gambar ada di bawah teks penjelasan di HP, 
+           atau hapus '-reverse' jika ingin gambar dulu baru teks */
+        height: auto;
+        margin-bottom: 2rem;
+    }
+
+    .bagianbawah .kiri {
+        width: 100%;
+        height: 300px; /* Beri tinggi fix untuk gambar karena parent height auto */
+        border-radius: 0;
+        margin-top: 2rem;
+    }
+
+    .bagianbawah .kanan {
+        width: 100%;
+        padding: 2rem 1.5rem;
+        text-align: center; /* Tetap rata kiri atau ganti center jika mau */
+        display: flex;
+        flex-direction: column; /* Susun ke bawah */
+        align-items: center;    /* Tengahkan secara horizontal */
+        text-align: center;
+    }
+
+    .bagianbawah .kanan h2 {
+        font-size: 3rem;
+        text-align: center; /* Judul section rata tengah */
+        margin-bottom: 1rem;
+    }
+
+    .bagianbawah .kanan img {
+        /* Garis pemisah */
+        display: block;
+        margin: 0 auto; /* Tengahkan garis */
+    }
+    
+    .bagianbawah .kanan p {
+        font-size: 1.1rem;
+        text-align: justify; /* Agar teks paragraf rapi */
+    }
+
+    /* 4. FOOTER */
+    footer {
+        flex-direction: column-reverse;
+        height: auto;
+        padding: 2rem 0;
+        text-align: center;
+    }
+
+    .footerleft, .footerright {
+        width: 100%;
+        padding: 1.5rem;
+    }
+
+    .footerlinks {
+        width: 100%;
+        justify-content: center;
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .footergianttext {
+        margin-top: 1rem;
+    }
+
+    .footergianttext h1 {
+        white-space: normal; /* Izinkan teks turun ke bawah (wrap) */
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    .footerleftsmalltext {
+        font-size: 0.9rem;
+    }
+
+    .footerright img {
+        width: 60%; /* Logo footer tidak terlalu besar */
+        max-width: 200px;
+    }
+}
+

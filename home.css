@@ -1,0 +1,419 @@
+/* ================= GLOBAL RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #EDEDED;
+}
+
+/* ================= HEADER (SAMA DENGAN ABOUT US) ================= */
+.headerbar {
+    background-color: #f5f5f5;
+    padding: 5px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.headerlogo {
+    height: 70px;
+    width: auto;
+    margin-top: 20px;
+}
+
+.headerbarmiddle {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    font-family: "Kumbh Sans", sans-serif;
+}
+
+.headerbarmiddle a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    font-size: 20px;
+}
+
+.headerbarmiddle a:hover {
+    color: #ffc107;
+}
+
+/* --- TOMBOL LOGIN --- */
+.loginbutton {
+    background-color: #ECB602;
+    color: #ffffff;
+    padding: 5px 30px;
+    border-radius: 15px;
+    border: none;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Lalezar', sans-serif;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    font-size: 25px;
+    display: inline-block;
+}
+
+.loginbutton:hover {
+    background-color: #ffb300;
+}
+
+/* --- FOTO PROFIL BULAT --- */
+.profile-header {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid #290849;
+    background-color: #d9d9d9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5rem; /* Sesuai request: menyamakan dengan aboutusstyle.css */
+}
+
+.profile-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ================= HAMBURGER MENU ================= */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    margin-right: 20px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #1a0047;
+    border-radius: 2px;
+    transition: 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 10px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* ================= MOBILE MENU ================= */
+.mobile-menu {
+    display: none;
+    position: absolute;
+    top: 110px;
+    right: 0;
+    background-color: white;
+    width: 100%;
+    flex-direction: column;
+    padding: 20px;
+    gap: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    animation: slideDown 0.3s ease;
+    z-index: 999;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.mobile-menu.active {
+    display: flex;
+}
+
+.mobile-menu a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 10px;
+    font-size: 16px;
+    font-family: "Kumbh Sans", sans-serif;
+}
+
+.mobile-menu a:hover {
+    color: #ffc107;
+}
+
+/* ================= KONTEN HOME (LANDING PAGE) ================= */
+.konten1 {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    min-height: 90vh;
+    height: auto;
+    position: relative;
+    padding-bottom: 2rem;
+}
+
+.teksgede {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 2rem 0;
+}
+
+.teksgede h1 {
+    font-family: "Notable", sans-serif;
+    font-weight: 400;
+    font-size: clamp(3rem, 10vw, 8rem);
+    color: #290849;
+    line-height: 1.2;
+    position: relative;
+    z-index: 2;
+}
+
+.indent-line { display: block; text-indent: 10rem; }
+.indent-line2 { display: block; text-indent: 40rem; }
+
+.photo1 {
+    width: 15rem;
+    height: auto;
+    position: absolute;
+    z-index: -1;
+    top: 0; left: 20%;
+}
+
+.photo2 {
+    width: 15rem;
+    height: auto;
+    position: absolute;
+    z-index: -1;
+    transform: translateX(-5rem);
+}
+
+.linebackground {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 10%;
+    z-index: 0;
+    opacity: 0.5;
+}
+
+.konten1bawah {
+    width: 100%;
+    padding: 0 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.konten1bawahkiri {
+    font-family: "Kumbh Sans", sans-serif;
+    flex: 1;
+    min-width: 300px;
+}
+
+.line1 { padding-bottom: 1rem; max-width: 100%; }
+.konten1bawahkiri p { padding-bottom: 1rem; line-height: 1.5; }
+
+.konten1bawahkiri h1 {
+    font-family: "Notable", sans-serif;
+    font-size: 2rem;
+    color: #290849;
+    padding-bottom: 1rem;
+}
+
+.konten1bawahkanan {
+    padding-top: 2rem;
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+}
+
+.checkitoutbutton {
+    width: auto;
+    padding: 1rem 2rem;
+    height: auto;
+    background-color: #290849;
+    font-family: "Lalezar", sans-serif;
+    border: 0;
+    color: #ffffff;
+    border-radius: 1.5rem;
+    font-size: clamp(1.5rem, 4vw, 3.1rem);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.checkitoutbutton:hover { transform: scale(1.05); }
+
+.arrowbawah {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+/* ================= KONTEN 2 - 5 & FOOTER ================= */
+.konten2 { width: 100%; min-height: 600px; padding: 1rem; }
+.kotakkonten2 {
+    width: 100%; height: 100%;
+    background-image: url('./img/homeimg/scholarshipImage1.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    display: flex; flex-direction: column;
+}
+.konten2bagianatas {
+    width: 100%; height: 20%;
+    display: flex; justify-content: center; align-items: center;
+    color: #ffffff; font-family: "Bebas Neue", sans-serif;
+    font-size: clamp(1.5rem, 5vw, 2.5rem); text-align: center; padding: 1rem;
+}
+.konten2bagiantengah {
+    width: 100%; height: 80%;
+    display: flex; justify-content: space-between; align-items: center;
+    color: #ffffff; font-family: "Bebas Neue", sans-serif;
+    font-size: clamp(4rem, 12vw, 13rem); padding: 0 5%;
+}
+
+.konten3 { width: 100%; min-height: 20vh; padding: 2rem 1rem; display: flex; flex-direction: column; justify-content: center; }
+.konten3bagianatas { display: flex; align-items: center; justify-content: center; font-family: "Notable", sans-serif; font-size: clamp(1.5rem, 5vw, 2rem); color: #290849; text-align: center; }
+.konten3bagianbawah { display: flex; align-items: center; justify-content: center; font-family: "Oooh Baby", cursive; font-size: clamp(2rem, 8vw, 3rem); color: #290849; margin-top: 10px; }
+
+.konten4 { width: 100%; min-height: 100vh; padding: 1rem; display: flex; gap: 1rem; }
+.konten4kiri { width: 50%; display: flex; }
+.konten4kirigaris { width: 4px; background-image: url('./img/homeimg/line3.png'); background-size: cover; }
+.konten4kiriisi { width: 100%; padding: 2rem; font-family: 'Kumbh Sans', sans-serif; color: #290849; }
+.isi1 { margin-bottom: 4rem; }
+.isi1atas { font-family: "Notable", sans-serif; font-size: clamp(2rem, 5vw, 3rem); color: #290849; margin-bottom: 10px; }
+.isi1 a { text-decoration: none; }
+.isi1bawah { color: #818181; font-size: 1.2rem; }
+.isi2 { padding-left: 0; margin-bottom: 4rem; text-align: center;}
+.isi3 { padding-left: 3rem; margin-bottom: 4rem; text-align: center;}
+.isi4 { padding-left: 6rem; text-align: center;}
+.konten4kanan { width: 50%; display: flex; position: relative; }
+.konten4kananisi { width: 100%; height: 100%; background-image: url('./img/homeimg/konten4.png'); background-size: cover; background-position: center; border-radius: 20px; min-height: 300px; }
+
+.konten5 { margin-top: 3rem; width: 100%; min-height: 70vh; background: linear-gradient(to bottom, #EDEDED, #551f5d); padding: 3rem 1rem; }
+.konten5header { text-align: center; color: #290849; margin-bottom: 2rem; }
+.konten5header p { font-family: 'Kumbh Sans', sans-serif; font-size: 1.2rem; margin-bottom: 0.5rem; }
+.konten5header h1 { font-family: "Notable", sans-serif; font-size: clamp(2rem, 6vw, 3rem); }
+.konten5card { width: 100%; display: flex; justify-content: center; padding: 1rem; }
+.testimonials-cards { width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1000px; }
+.testimonial-card { background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(8px); border-radius: 1rem; padding: 2rem; color: white; font-family: "Kumbh Sans", sans-serif; transition: transform 0.3s ease; }
+.testimonial-card:hover { transform: translateY(-5px); }
+.quote { font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem; position: relative; padding-left: 1rem; }
+.quote::before { content: ""; width: 4px; height: 100%; background-color: #ECB602; position: absolute; left: 0; top: 0; border-radius: 4px; }
+.name { font-weight: bold; color: #ECB602; margin-bottom: 0.5rem; font-size: 1.1rem; }
+.award { font-size: 0.9rem; opacity: 0.9; }
+
+footer { width: 100%; height: auto; min-height: 50vh; background-color: #3D3D3D; color: #ffffff; font-family: "Kumbh Sans", sans-serif; display: flex; flex-wrap: wrap; }
+.footerleft { width: 70%; padding: 4rem; display: flex; flex-direction: column; }
+.footerlinks { display: flex; gap: 2rem; font-size: 1.2rem; margin-bottom: 2rem; }
+.footerlinks a { text-decoration: none; color: white; }
+.footergianttext { font-family: "Notable", sans-serif; font-size: clamp(1rem, 5vw, 2.5rem); color: #ffffff; margin: 1rem 0; }
+.footerleftsmalltext { margin-top: auto; line-height: 1.5; }
+.footerright { padding: 2rem; width: 30%; display: flex; align-items: center; justify-content: center; }
+.footerright img { width: 100%; max-width: 200px; height: auto; }
+
+
+/* ================= RESPONSIVE (SAMA DENGAN ABOUT US) ================= */
+@media (max-width: 1024px) {
+    .indent-line, .indent-line2 { text-indent: 0; text-align: center; }
+    .teksgede h1 { text-align: center; }
+    .konten1bawah { flex-direction: column; align-items: center; text-align: center; gap: 2rem; }
+    .konten1bawahkanan { justify-content: center; }
+    .arrowbawah { justify-content: center; }
+    .photo1, .photo2 { display: none; }
+    .konten2bagiantengah { font-size: 6rem; }
+}
+
+@media (max-width: 768px) {
+    /* --- Header Mobile Styles (Copy dari About Us) --- */
+    .hamburger {
+        display: flex;
+        margin-right: 10px;
+    }
+
+    .headerbarmiddle {
+        display: none;
+    }
+
+    .headerbar {
+        padding: 5px 15px;
+    }
+
+    .headerlogo {
+        height: 60px; /* Sesuaikan tinggi logo di HP */
+    }
+
+    /* Sembunyikan Login & Profil di Header HP (Pindah ke Menu) */
+    .loginbutton {
+        display: none;
+    }
+
+    .profile-header {
+        display: none;
+    }
+
+    .mobile-menu {
+        top: 90px;
+    }
+
+    /* --- Konten Mobile Styles --- */
+    .konten1 { height: auto; min-height: 100vh; margin-bottom: 3rem; }
+    .teksgede { padding-top: 2rem; }
+    .teksgede h1 { font-size: 3rem; line-height: 1.2; }
+    .konten1bawah { flex-direction: column; padding: 0 1.5rem; gap: 2rem; height: auto; }
+    .konten1bawahkiri, .konten1bawahkanan { width: 100%; text-align: center; }
+    .checkitoutbutton { width: 100%; font-size: 2rem; height: auto; padding: 10px; }
+    .arrowbawah { margin-left: 0; }
+    
+    .konten2 { height: auto; padding: 1rem; margin-bottom: 2rem; }
+    .kotakkonten2 { border-radius: 15px; padding: 2rem 1rem; }
+    .konten2bagiantengah { flex-direction: column; font-size: 4rem; justify-content: center; text-align: center; gap: 2rem; }
+    .konten2bagiantengah p { margin-bottom: 0; }
+    
+    .konten3 { height: auto; padding: 2rem 1rem; }
+    .konten3bagianatas { font-size: 1.5rem; text-align: center; }
+    .konten3bagianbawah { font-size: 2rem; }
+
+    .konten4 { flex-direction: column; height: auto; padding: 1rem; gap: 2rem; }
+    .konten4kiri, .konten4kanan { width: 100%; height: auto; }
+    .isi1, .isi2, .isi3, .isi4 { width: 100%; margin-left: 0; padding-left: 0; text-align: center; margin-top: 2rem; }
+    .isi1 p { margin-left: 0; }
+    .isi1atas { font-size: 2rem; }
+    .konten4kananisi { min-height: 300px; border-radius: 15px; }
+
+    .konten5header h1 { font-size: 2rem; }
+    .testimonials-cards { grid-template-columns: 1fr; }
+    
+    footer { flex-direction: column-reverse; height: auto; padding: 2rem 0; }
+    .footerleft, .footerright { width: 100%; padding: 1.5rem; text-align: center; }
+    .footerlinks { justify-content: center; gap: 2rem; }
+    .footergianttext { font-size: 2rem; white-space: normal; }
+    .footergianttext h1 { white-space: normal; }
+}

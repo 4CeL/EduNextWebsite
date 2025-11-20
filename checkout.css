@@ -1,0 +1,403 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    background-color: #EDEDED;
+}
+
+.headerbar {
+    background-color: #f5f5f5;
+    padding: 5px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.headerlogo {
+    height: 70px;
+    width: auto;
+    margin-top: 20px;
+}
+
+.headerbarmiddle {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    font-family: "Kumbh Sans", sans-serif;
+}
+
+.headerbarmiddle a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    font-size: 20px;
+}
+
+.headerbarmiddle a:hover {
+    color: #ffc107;
+}
+
+/* --- TOMBOL LOGIN (Tambahkan ini di bagian Header) --- */
+.loginbutton {
+    background-color: #ECB602;
+    color: #ffffff;
+    padding: 5px 30px;
+    border-radius: 15px;
+    border: none;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Lalezar', sans-serif;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    font-size: 25px;
+    display: inline-block;
+}
+
+.loginbutton:hover {
+    background-color: #ffb300;
+}
+
+/* --- GANTI STYLE PROFILE ICON LAMA DENGAN INI --- */
+.profile-header {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid #290849; /* Border ungu agar rapi */
+    background-color: #d9d9d9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5rem;
+}
+
+.profile-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ===== HAMBURGER MENU ===== */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    margin-right: 20px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #1a0047;
+    border-radius: 2px;
+    transition: 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 10px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* ===== MOBILE MENU ===== */
+.mobile-menu {
+    display: none;
+    position: absolute;
+    top: 110px;
+    right: 0;
+    background-color: white;
+    width: 100%;
+    flex-direction: column;
+    padding: 20px;
+    gap: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    animation: slideDown 0.3s ease;
+    z-index: 999;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mobile-menu.active {
+    display: flex;
+}
+
+.mobile-menu a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 10px;
+    font-size: 16px;
+    font-family: "Kumbh Sans", sans-serif;
+}
+
+.mobile-menu a:hover {
+    color: #ffc107;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .headerbarmiddle {
+        display: none;
+    }
+
+    .headerbar {
+        padding: 5px 15px;
+    }
+
+    .headerlogo {
+        height: 60px;
+    }
+
+    .loginbutton {
+        padding: 5px 20px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hamburger {
+        display: flex;
+        margin-right: 10px;
+    }
+
+    .headerbarmiddle {
+        display: none;
+    }
+
+    .headerbar {
+        padding: 5px 10px;
+    }
+
+    .headerlogo {
+        height: 50px;
+        margin-top: 10px;
+    }
+
+    .loginbutton {
+        padding: 5px 15px;
+        font-size: 14px;
+    }
+
+    .mobile-menu {
+        top: 90px;
+    }
+
+    .mobile-menu a {
+        font-size: 14px;
+    }
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+    gap: 40px;
+}
+
+/* LEFT CARD */
+.payment-box {
+    width: 40%;
+    background: white;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.payment-box h2{
+    text-align: center;
+    font-weight: bold;
+    font-family: "Notable", sans-serif;
+    letter-spacing: 2px;
+    color: #290849;
+}
+
+
+.title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #2e2b86;
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: 600;
+    font-family: "Kumbh Sans", sans-serif;
+}
+
+input[type="text"],
+input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-family: "Kumbh Sans", sans-serif;
+}
+
+.payment-methods {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 10px;
+    font-family: "Kumbh Sans", sans-serif;
+}
+
+.method {
+    background: #f5f5f5;
+    padding: 12px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.pay-btn {
+    margin-top: 25px;
+    width: 100%;
+    padding: 14px;
+    background: #e6b400;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* RIGHT CARD */
+.summary-box {
+    width: 30%;
+    height: 50%;
+    background: white;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.summary-box h2{
+    text-align: center;
+    font-weight: bold;
+    font-family: "Notable", sans-serif;
+    letter-spacing: 2px;
+    color: #290849;
+}
+
+.summary-line {
+    width: 100%;
+    height: 1px;
+    background: #bbb;
+    margin: 15px 0;
+}
+
+.item span{
+    font-family: "Kumbh Sans", sans-serif;
+    font-weight: bold;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 0;
+}
+
+.item p{
+    font-family: "Kumbh Sans", sans-serif;
+}
+
+.item.total p {
+    font-weight: 700;
+    font-family: "Kumbh Sans", sans-serif;
+}
+
+.secure {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #444;
+    font-family: "Kumbh Sans", sans-serif;
+    text-align: center;
+}
+
+/* ================================================================= */
+/* TAMBAHAN RESPONSIVE (PASTE DI BAGIAN PALING BAWAH FILE)           */
+/* ================================================================= */
+
+@media screen and (max-width: 900px) {
+    /* --- 1. LAYOUT UTAMA MENJADI SATU KOLOM --- */
+    .container {
+        flex-direction: column;
+        padding: 20px 15px;
+        gap: 30px;
+    }
+
+    /* --- 2. PAYMENT BOX (KIRI -> ATAS) --- */
+    .payment-box {
+        width: 100%; /* Full width di HP */
+        padding: 25px 20px;
+        order: 1; /* Pastikan form di urutan pertama */
+    }
+
+    .payment-methods {
+        grid-template-columns: 1fr; /* Metode pembayaran jadi 1 kolom vertikal */
+    }
+
+    /* --- 3. SUMMARY BOX (KANAN -> BAWAH) --- */
+    .summary-box {
+        width: 100%; /* Full width di HP */
+        height: auto;
+        padding: 25px 20px;
+        order: 2; /* Summary di bawah form */
+    }
+
+
+    /* Sembunyikan tombol login desktop di HP */
+    .loginbutton {
+        display: none;
+    }
+
+    /* Atur ulang posisi foto profil di HP */
+    .profile-header {
+        display: none;
+    }
+    
+    /* Mobile Menu agar posisinya pas */
+    .mobile-menu {
+        top: 70px;
+    }
+}

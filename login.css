@@ -1,0 +1,431 @@
+/* ================= GLOBAL RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    background-color: #EDEDED;
+}
+
+.headerbar {
+    background-color: #f5f5f5;
+    padding: 5px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.headerlogo {
+    height: 70px;
+    width: auto;
+    margin-top: 20px;
+}
+
+.headerbarmiddle {
+    position: absolute;
+    left: 52%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    font-family: "Kumbh Sans", sans-serif;
+}
+
+.headerbarmiddle a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    font-size: 20px;
+}
+
+.headerbarmiddle a:hover {
+    color: #ffc107;
+}
+
+/* --- TOMBOL LOGIN (Tambahkan ini di bagian Header) --- */
+.loginbutton {
+    background-color: #ECB602;
+    color: #ffffff;
+    padding: 5px 30px;
+    border-radius: 15px;
+    border: none;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Lalezar', sans-serif;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    font-size: 25px;
+    display: inline-block;
+}
+
+.loginbutton:hover {
+    background-color: #ffb300;
+}
+
+/* --- GANTI STYLE PROFILE ICON LAMA DENGAN INI --- */
+.profile-header {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid #290849; /* Border ungu agar rapi */
+    background-color: #d9d9d9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5rem;
+}
+
+.profile-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ===== HAMBURGER MENU ===== */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    margin-right: 20px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #1a0047;
+    border-radius: 2px;
+    transition: 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 10px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* ===== MOBILE MENU ===== */
+.mobile-menu {
+    display: none;
+    position: absolute;
+    top: 110px;
+    right: 0;
+    background-color: white;
+    width: 100%;
+    flex-direction: column;
+    padding: 20px;
+    gap: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    animation: slideDown 0.3s ease;
+    z-index: 999;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mobile-menu.active {
+    display: flex;
+}
+
+.mobile-menu a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 10px;
+    font-size: 16px;
+    font-family: "Kumbh Sans", sans-serif;
+}
+
+.mobile-menu a:hover {
+    color: #ffc107;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .headerbarmiddle {
+        display: none;
+    }
+
+    .headerbar {
+        padding: 5px 15px;
+    }
+
+    .headerbar a{
+        display: none;
+    }
+
+    .headerlogo {
+        height: 60px;
+    }
+
+    .loginbutton {
+        padding: 5px 20px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hamburger {
+        display: flex;
+        margin-right: 10px;
+    }
+
+    .headerbarmiddle {
+        display: none;
+    }
+
+    .headerbar {
+        padding: 5px 10px;
+    }
+
+    .headerbar a{
+        display: none;
+    }
+
+    .headerlogo {
+        height: 50px;
+        margin-top: 10px;
+    }
+
+    .loginbutton {
+        padding: 5px 15px;
+        font-size: 14px;
+    }
+
+    .mobile-menu {
+        top: 90px;
+    }
+
+    .mobile-menu a {
+        font-size: 14px;
+    }
+}
+
+/* ================= CONTENT LOGIN ================= */
+.container {
+    display: flex;
+    height: calc(100vh - 80px); /* Kurangi tinggi header */
+    width: 100%;
+}
+
+/* ---------------- BAGIAN KIRI (FORM) ---------------- */
+.left-panel {
+    width: 40%; 
+    background-color: #F0F0F0; 
+    padding: 2rem 4rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-wrapper {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    z-index: 10; 
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.form-wrapper h1{
+    text-align: center;
+}
+
+.login-title {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 3rem;
+    color: #333;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #444;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 1rem;
+}
+
+.input-group input::placeholder {
+    color: #ccc;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.options a {
+    color: #333;
+    text-decoration: underline;
+}
+
+.btn-signin {
+    width: 100%;
+    padding: 12px;
+    background-color: #55185D; /* Ungu Edunext */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    transition: 0.3s;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.btn-signin:hover {
+    background-color: #3e1145;
+}
+
+.divider {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.btn-google {
+    width: 100%;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1rem;
+}
+
+.signup-text {
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.signup-text a {
+    color: #333;
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+/* Teks Besar "L O" di Kiri */
+.big-text-left {
+    position: absolute;
+    bottom: -2%;
+    left: 5%;
+    font-family: 'Notable', sans-serif;
+    font-size: 12rem;
+    color: transparent;
+    -webkit-text-stroke: 2px #55185D; 
+    pointer-events: none;
+    line-height: 1;
+}
+
+/* ---------------- BAGIAN KANAN (GAMBAR) ---------------- */
+.right-panel {
+    width: 60%;
+    height: auto;
+    position: relative;
+    background-image: url('./img/loginimg/login.png'); /* Pastikan path gambar benar */
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* Teks Besar "G I N" di Kanan */
+.big-text-right {
+    position: absolute;
+    bottom: -2%;
+    left: -5%; 
+    font-family: 'Notable', sans-serif;
+    font-size: 12rem;
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.8); 
+    pointer-events: none;
+    line-height: 1;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+    /* --- Navbar Mobile Logic --- */
+
+    /* --- Content Mobile Logic --- */
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
+    .left-panel, .right-panel {
+        width: 100%;
+    }
+    .right-panel {
+        height: 30vh; /* Gambar jadi kecil di atas */
+        display: none; /* Opsional: sembunyikan gambar di HP biar ringan */
+    }
+    .left-panel {
+        height: 100vh;
+        padding: 2rem;
+    }
+    .big-text-left, .big-text-right {
+        font-size: 6rem; /* Kecilkan teks background */
+    }
+}
